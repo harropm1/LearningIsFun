@@ -7,8 +7,6 @@ $(function ()
     $("#courseid").val(courseid);
 
     $("#addMe").on("click", sendContact);
-
-    /* $("#cancel").prop("href", "details.html?courseId=" + object.courseid) */
 });
 
 function sendContact()
