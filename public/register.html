@@ -40,8 +40,9 @@
     <main>
         <div class="container">
             <h2 class="display-4 text-center">Register for Course</h2>
-            <table id="productDetailsTable" class="table table-bordered table-striped">
-                <tbody id="tableBody">
+            <form id="registerForm">
+                <table id="productDetailsTable" class="table table-bordered table-striped">
+                    <tbody id="tableBody">
                         <tr>
                             <td>Course Id</td>
                             <td><input id="courseid" name="courseid" value="" disabled></td>
@@ -54,10 +55,12 @@
                             <td>Email</td>
                             <td><input id="email" name="email" value=""></td>
                         </tr>
-                </tbody>
-            </table>
-            <a role="button" class="btn btn-primary" id="addMe" href="details.html">Add Me</a>
-            <a role="button" class="btn btn-secondary" id="cancel" href="details.html">Cancel</a>
+                    </tbody>
+                </table>
+                <a role="button" class="btn btn-primary" id="addMe" href="#">Add Me</a>
+                <a role="button" class="btn btn-secondary" id="cancel" href="#">Cancel</a>
+            </form>
+            <div id="msgDiv"></div>
         </div>
     </main>
 
