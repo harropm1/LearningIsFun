@@ -12,13 +12,15 @@
 
     <!--My favicon and css-->
     <link rel="icon" href="images/school-favicon.png">
+    <link rel="stylesheet" href="styles/site.css">
+    <link rel="stylesheet" href="styles/courses.css">
 
     <title>Livingston Community Center</title>
 </head>
 
 <body>
     <!--nav bar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary navbar-custom">
         <a class="navbar-brand" href="index.html">Main Office</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,10 +39,10 @@
         <h1 class="display-1 text-center">Livingston Community Center</h1>
     </header>
 
-    <!--dropdowns/search buttons/table-->
+    <!--dropdown/search buttons/table-->
     <main>
         <div class="container">
-            <h2 class="display-4 text-center">Continuing Education Center</h2>
+            <h2 class="display-4 text-center">Continuing Education Center Courses</h2>
             <form>
                 <div class="sortByCategory">
                     <label for="categorySelect">Course Categories</label>
@@ -48,9 +50,9 @@
                         <option value="Choose one">Choose a category</option>
                     </select>
                 </div>
-                <button type="button" class="btn btn-primary" id="viewAll" href="#">View All Courses</button>
+                <button type="button" class="btn btn-primary" id="viewAll">View All Courses</button>
             </form>
-            <h2 id="errorMsg"></h2>
+            <!--table-->
             <table id="courseTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>

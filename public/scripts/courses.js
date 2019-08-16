@@ -1,9 +1,16 @@
 "use strict";
 
+/*This ready function does three things. First it calls categories to dynamically load a dropdown.
+* Next, it loads a table of available courses based on what the user selected.
+* Third, it loads all of the available courses, if the user clicked that button.
+*
+* @param - data - in each case, this refers to the data from the server.js
+*/
 $(function ()
 {
     let categories;
 
+    /* generates the dropdown */
     $.getJSON("api/categories", function (data)
     {
         categories = data;
@@ -15,7 +22,7 @@ $(function ()
         }
     });
 
-
+    /* generates a table by category selection */
     $("#categorySelect").on("change", function ()
     {
         let courses;
@@ -34,6 +41,7 @@ $(function ()
         }
     });
 
+    /* generates a table with all courses */
     let allCourses;
     $("#viewAll").on("click", function()
     {
@@ -46,6 +54,10 @@ $(function ()
     })
 });
 
+/* This function loops through the entire course list from server.js to know what to put into the table 
+*
+* @param - coursesList = this is what is passed from the ready functions and the server
+*/
 function createSearchByCategoryTable(coursesList)
 {
     for (let i = 0; i < coursesList.length; i++)
@@ -54,6 +66,11 @@ function createSearchByCategoryTable(coursesList)
     }
 }
 
+/* This function creates the table with a small amount of data.
+* It is used in both the all courses table and selection courses table.
+*
+* @param - coursesList = this is what is passed from the ready functions and the server
+*/
 function insertTableData(coursesList)
 {
     let rowBeingEntered = "<tr><td>" + coursesList.CourseId +

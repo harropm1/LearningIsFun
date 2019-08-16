@@ -12,13 +12,14 @@
 
     <!--My favicon and css-->
     <link rel="icon" href="images/school-favicon.png">
+    <link rel="stylesheet" href="styles/site.css">
 
     <title>Livingston Community Center</title>
 </head>
 
 <body>
     <!--nav bar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary navbar-custom">
         <a class="navbar-brand" href="index.html">Main Office</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +40,7 @@
     <!--table/buttons-->
     <main>
         <div class="container">
-            <h2 class="display-4 text-center">Register for Course</h2>
+            <h2 class="display-4 text-center">Register for This Course</h2>
             <form id="registerForm" name="registerForm" action="register.html" method="POST">
                 <table id="productDetailsTable" class="table table-bordered table-striped">
                     <tbody id="tableBody">
@@ -57,10 +58,11 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-primary" id="addMe" href="#">Add Me</button>
+                <button type="submit" class="btn btn-primary" id="addMe">Add Me</button>
                 <a role="button" class="btn btn-danger" id="cancel" href="#">Cancel</a>
                 <a role="button" class="btn btn-secondary" id="backToCourses" href="#">Back to Courses Search</a>
             </form>
+            <!--this shows as a warning, but the message is dynamically generated with jquery-->
             <h3 id="msgDiv"></h3>
         </div>
     </main>
