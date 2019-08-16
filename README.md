@@ -1,0 +1,1 @@
+This is the repo for the Week 4 Friday Project. It involves AJAX calls, dynamically created tables, and registering students for courses.
