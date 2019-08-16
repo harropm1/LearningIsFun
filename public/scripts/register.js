@@ -3,14 +3,12 @@
 $(function ()
 {
     let urlParams = new URLSearchParams(location.search);
-    let courseId = urlParams.get("courseId");
+    let courseid = urlParams.get("courseId");
+    $("#courseid").val(courseid);
 
     let object;
-    $.getJSON("/api/register/" + courseId, function(data)
+    $.getJSON("/api/register/" + courseid, function(data)
     {
         object = data;
-
-        $("#courseid").prop("value", object.CourseId)
-        
     });
 });
