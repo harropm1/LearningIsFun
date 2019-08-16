@@ -7,6 +7,14 @@ $(function ()
     $("#courseid").val(courseid);
 
     $("#addMe").on("click", sendContact);
+    $("#cancel").on("click", function()
+    {
+        $("#cancel").prop("href", "details.html?courseId=" + courseid);
+    });
+    $("#backToCourses").on("click", function()
+    {
+        $("#backToCourses").prop("href", "courses.html");
+    });
 });
 
 function sendContact()
