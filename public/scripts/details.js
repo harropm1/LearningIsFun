@@ -1,4 +1,4 @@
-"use strict"; 
+"use strict";
 
 $(function ()
 {
@@ -6,12 +6,12 @@ $(function ()
     let courseId = urlParams.get("courseId");
 
     let object;
-    $.getJSON("api/courses/" + courseId, function(data)
+    $.getJSON("api/courses/" + courseId, function (data)
     {
         object = data;
 
         insertTableData(object);
-        $("#register").prop("href", "register.html?courseId=" + object.CourseId)
+        $("#register").prop("href", "register.html?courseId=" + object.CourseId);
     });
 });
 
@@ -25,8 +25,26 @@ function insertTableData(course)
         '</td></tr><tr><td>End Date</td><td>' + course.EndDate +
         '</td></tr><tr><td>Meeting Times</td><td>' + course.Meets +
         '</td></tr><tr><td>Fee</td><td>$' + course.Fee +
-        '</td></tr><tr><td>Students Enrolled</td><td>' + course.Students +
-        '</td></tr>';
+        '</td></tr><tr><td>Students Enrolled</td><td>&nbsp;</td></tr>';
 
     $("#tableBody").append(tableData);
+
+
+    if (course.Students.length == 0)
+    {
+        let noStudents = "<tr><td>No students enrolled</td><td>&nbsp;</td></tr>";
+
+        $("#tableBody").append(noStudents);
+    }
+    else
+    {
+        for (let i = 0; i < course.Students.length; i++)
+        {
+            let studentName = course.Students[i].StudentName;
+            let email = course.Students[i].Email;
+            let studentsRow = "<tr><td>" + studentName + "</td><td>" + email + "</td></tr>";
+
+            $("#tableBody").append(studentsRow);
+        }
+    }
 }
