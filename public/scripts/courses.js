@@ -33,6 +33,17 @@ $(function ()
             });
         }
     });
+
+    let allCourses;
+    $("#viewAll").on("click", function()
+    {
+        $.getJSON("/api/courses", function (data)
+        {
+            allCourses = data;
+            $("#tableBody").empty();
+            createSearchByCategoryTable(allCourses);
+        })
+    })
 });
 
 function createSearchByCategoryTable(coursesList)
