@@ -10,7 +10,7 @@ $(function ()
         for (let i = 0; i < categories.length; i++)
         {
             let categoryName = categories[i].Category;
-            let newOption = $("<option>", { text: categoryName, value: categories[i].value })
+            let newOption = $("<option>", { text: categoryName, value: categories[i].Value })
             $("#categorySelect").append(newOption);
         }
     });
@@ -19,41 +19,37 @@ $(function ()
     $("#categorySelect").on("change", function ()
     {
         let courses;
-        $.getJSON("/api/courses/bycategory/" + $("#categorySelect").val(), function (data)
+        if ($("#categorySelect").val() == "Choose one")
         {
-            courses = data;
-
-            if ($("#categorySelect").val() == "Choose one")
+            $("#tableBody").empty();
+        }
+        else
+        {
+            $.getJSON("/api/courses/bycategory/" + $("#categorySelect").val(), function (data)
             {
+                courses = data;
                 $("#tableBody").empty();
-            }
-            else
-            {
-                $("#tableBody").empty();
-                createSearchByCategoryTable(courses, $("#categorySelect").val());
-            }
-        });
+                createSearchByCategoryTable(courses);
+            });
+        }
     });
 });
 
-function createSearchByCategoryTable(list, selection)
+function createSearchByCategoryTable(coursesList)
 {
-    for (let i = 0; i < list.length; i++)
+    for (let i = 0; i < coursesList.length; i++)
     {
-        if (selection.value == list[i].Category)
-        {
-            insertTableData(list[i]);
-        }
+        insertTableData(coursesList[i]);
     }
 }
 
-function insertTableData(list)
+function insertTableData(coursesList)
 {
-    let rowBeingEntered = "<tr><td>" + list.CourseId +
-     "</td><td>" + list.title + 
-     "</td><td>" + list.StartDate + 
-     "</td><td><a target='rptTab' href='details.html?courseId=" + list.CourseId + 
-     "'>Details</a></td></tr>";
+    let rowBeingEntered = "<tr><td>" + coursesList.CourseId +
+        "</td><td>" + coursesList.Title +
+        "</td><td>" + coursesList.StartDate +
+        "</td><td><a target='rptTab' href='details.html?courseId=" + coursesList.CourseId +
+        "'>Details</a></td></tr>";
 
     $("#tableBody").append(rowBeingEntered);
 }
