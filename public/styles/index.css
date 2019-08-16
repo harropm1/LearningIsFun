@@ -1,5 +1,12 @@
 .addBackground {
-    background-image: url("images/livingstoncommunitycenter.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: url("/images/communitycenter.jpg") center no-repeat;
+    background-size: 100%; 
+}
+.jumbotron {
+    color: white;
+    height: 500px;
+    width: auto;
+}
+aside {
+    padding-top: 50px;
 }

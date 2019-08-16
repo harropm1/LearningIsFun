@@ -1,10 +1,16 @@
 "use strict";
 
+/*This ready function calls the insert table data function.
+* It also adds a register button that connects a user to the register page for this course
+*
+* @param - courseId - string = this is pulled from the course that the user selected on the course page
+*/
 $(function ()
 {
     let urlParams = new URLSearchParams(location.search);
     let courseId = urlParams.get("courseId");
 
+    /* this is the call to the server */
     let object;
     $.getJSON("api/courses/" + courseId, function (data)
     {
@@ -15,6 +21,11 @@ $(function ()
     });
 });
 
+/* This function dynamically creates a table that includes all of the data about a specific course.
+*
+* @param - course = this is the data that is passed from the load function. It refers to each key value
+*
+*/
 function insertTableData(course)
 {
     let tableData = '<tr><td>Course Id</td><td>' + course.CourseId +
@@ -29,7 +40,9 @@ function insertTableData(course)
 
     $("#tableBody").append(tableData);
 
-
+    /* this part of the function loops through the registeredstudents to add them to the end of the table.
+    * if there is no one registered for the course, it also alerts that in the table as well.
+    */
     if (course.Students.length == 0)
     {
         let noStudents = "<tr><td>No students enrolled</td><td>&nbsp;</td></tr>";
