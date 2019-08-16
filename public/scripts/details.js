@@ -1,3 +1,4 @@
+"use strict"; 
 
 $(function ()
 {
@@ -10,6 +11,7 @@ $(function ()
         object = data;
 
         insertTableData(object);
+        $("#register").prop("href", "register.html?courseId=" + object.CourseId)
     });
 });
 
