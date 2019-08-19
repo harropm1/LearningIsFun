@@ -24,6 +24,10 @@ $(function ()
     {
         $("#backToDetails").prop("href", "courses.html");
     });
+    $("#editClass").on("click", function()
+    {
+        $("#editClass").prop("href", "editcourse.html?courseId=" + object.CourseId);
+    });
 });
 
 /* This function dynamically creates a table that includes all of the data about a specific course.

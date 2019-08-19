@@ -11,6 +11,7 @@ $(function ()
     let categories;
 
     $("thead").hide();
+    $("#addClass").hide();
 
     /* generates the dropdown */
     $.getJSON("api/categories", function (data)
@@ -31,11 +32,13 @@ $(function ()
         if ($("#categorySelect").val() == "Choose one")
         {
             $("thead").hide();
+            $("#addClass").hide();
             $("#tableBody").empty();
         }
         else
         {
             $("thead").show();
+            $("#addClass").show();
             $.getJSON("/api/courses/bycategory/" + $("#categorySelect").val(), function (data)
             {
                 courses = data;
@@ -50,6 +53,7 @@ $(function ()
     $("#viewAll").on("click", function()
     {
         $("thead").show();
+        $("#addClass").show();
         $.getJSON("/api/courses", function (data)
         {
             allCourses = data;
