@@ -10,6 +10,8 @@ $(function ()
 {
     let categories;
 
+    $("thead").hide();
+
     /* generates the dropdown */
     $.getJSON("api/categories", function (data)
     {
@@ -28,10 +30,12 @@ $(function ()
         let courses;
         if ($("#categorySelect").val() == "Choose one")
         {
+            $("thead").hide();
             $("#tableBody").empty();
         }
         else
         {
+            $("thead").show();
             $.getJSON("/api/courses/bycategory/" + $("#categorySelect").val(), function (data)
             {
                 courses = data;
@@ -45,6 +49,7 @@ $(function ()
     let allCourses;
     $("#viewAll").on("click", function()
     {
+        $("thead").show();
         $.getJSON("/api/courses", function (data)
         {
             allCourses = data;
@@ -76,7 +81,7 @@ function insertTableData(coursesList)
     let rowBeingEntered = "<tr><td>" + coursesList.CourseId +
         "</td><td>" + coursesList.Title +
         "</td><td>" + coursesList.StartDate +
-        "</td><td><a target='rptTab' href='details.html?courseId=" + coursesList.CourseId +
+        "</td><td><a target='_self' class='green' href='details.html?courseId=" + coursesList.CourseId +
         "'>Details</a></td></tr>";
 
     $("#tableBody").append(rowBeingEntered);

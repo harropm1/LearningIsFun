@@ -1,6 +1,16 @@
 h1, h2 {
-    color: #056839
+    color: #056839;
 }
 .navbar-custom {
     background-color: #056839 !important;
+    color: white;
+}
+.green {
+    color: #056839;
+}
+
+.greenBackground {
+    background-color: #056839 !important;
+    color: white;
+    outline: #056839 !important;
 }

@@ -19,6 +19,11 @@ $(function ()
         insertTableData(object);
         $("#register").prop("href", "register.html?courseId=" + object.CourseId);
     });
+
+    $("#backToDetails").on("click", function()
+    {
+        $("#backToDetails").prop("href", "courses.html");
+    });
 });
 
 /* This function dynamically creates a table that includes all of the data about a specific course.
