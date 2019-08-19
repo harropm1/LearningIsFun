@@ -33,10 +33,15 @@ function sendContact()
     let urlParams = new URLSearchParams(location.search);
     let courseid = urlParams.get("courseId");
     $("#courseid").val(courseid);
+    let studentNameInput = $("#studentname").val();
+    let emailInput = $("#email").val();
+    let pattern = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/
        
-    if ($("#studentname").val() == "" || $("#email").val() == "")
+    console.log(pattern.test(emailInput));
+    console.log(emailInput);
+    if (studentNameInput.trim() == "" || !pattern.test(emailInput))
     {
-        $("#msgDiv").html("Please enter student information.")
+        $("#msgDiv").html("Please valid enter student information.");
     }
     else
     {

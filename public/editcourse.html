@@ -13,7 +13,6 @@
     <!--My favicon and css-->
     <link rel="icon" href="images/school-favicon.png">
     <link rel="stylesheet" href="styles/site.css">
-    <link rel="stylesheet" href="styles/register.css">
 
     <title>Livingston Community Center</title>
 </head>
@@ -29,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="courses.html">Look for Courses</a>
+                    <a class="nav-link" href="courses.html">Look for Classes</a>
                 </li>
             </ul>
         </div>
@@ -41,31 +40,18 @@
     <!--table/buttons-->
     <main>
         <div class="container">
-            <h2 class="display-4 text-center">Register for This Course</h2>
-            <form id="registerForm" name="registerForm" action="register.html" method="POST">
-                <table id="productDetailsTable" class="table table-bordered table-striped">
-                    <tbody id="tableBody">
-                        <tr>
-                            <td>Course Id</td>
-                            <td><input id="courseid" name="courseid" value="" readonly></td>
-                        </tr>
-                        <tr>
-                            <td>Name</td>
-                            <td><input id="studentname" name="studentname" value="" required minlength="2"></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><input id="email" name="email" value="" required></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="submit" class="btn btn-success greenBackground" id="addMe">Add Me</button>
-                <a role="button" class="btn btn-danger" id="cancel" href="#">Cancel</a>
-                <a role="button" class="btn btn-primary" id="backToDetails" href="#">Back to Details</a>
-                <a role="button" class="btn btn-secondary" id="backToCourses" href="#">Back to Courses Search</a>
-            </form>
-            <!--this shows as a warning, but the message is dynamically generated with jquery-->
-            <div id="msgDiv"></div>
+            <h2 class="display-4 text-center">Course Details</h2>
+            <table id="courseTable" class="table">
+                <tbody id="coursetableBody">
+                </tbody>
+            </table>
+            <table id="studentTable" class="table">
+                <tbody id="studentTableBody">
+                </tbody>
+            </table>
+            <a role="button" class="btn btn-success greenBackground" id="confirmEdit" href="#">Confirm Edit</a>
+            <a role="button" class="btn btn-primary" id="cancelEdit" href="#">Cancel this Edit</a>
+            <a role="button" class="btn btn-secondary" id="backToDetails" href="#">Return to Course Selector</a>
         </div>
     </main>
 
@@ -87,7 +73,7 @@
         crossorigin="anonymous"></script>
 
     <!--My JavaScript-->
-    <script src="scripts/register.js"></script>
+    <script src="scripts/editcourse.js"></script>
 </body>
 
 </html>
