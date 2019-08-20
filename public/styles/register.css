@@ -1,3 +1,6 @@
 #backToDetails{
     display: none;
 }
+#msgDiv {
+    font-size: 1.5em;
+}

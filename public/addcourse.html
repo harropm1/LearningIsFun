@@ -13,6 +13,7 @@
     <!--My favicon and css-->
     <link rel="icon" href="images/school-favicon.png">
     <link rel="stylesheet" href="styles/site.css">
+    <link rel="stylesheet" href="styles/addcourse.css">
 
     <title>Livingston Community Center</title>
 </head>
@@ -72,7 +73,7 @@
                             <input type="text" class="form-control" id="enddate" name="enddate" required>
                         </div>
                         <div class="form-group">
-                            <label for="meets">Meets</label>
+                            <label for="meets">Meets On</label>
                             <input type="text" class="form-control" id="meets" name="meets" required>
                         </div>
                         <div class="form-group">
@@ -80,7 +81,10 @@
                             <input type="text" class="form-control" id="fee" name="fee" required>
                         </div>
                     </div>
-                    <div id="msgDiv"></div>
+                    <div id="msgDiv">
+                        <ul id="errorMessages">
+                        </ul>
+                    </div>
                     <a role="button" class="btn btn-success greenBackground" id="addCourse" href="#">Add this
                         Course</a>
                     <a role="button" class="btn btn-danger" id="cancel" href="#">Cancel</a>

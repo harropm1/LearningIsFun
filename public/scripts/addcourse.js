@@ -17,27 +17,86 @@ $(function ()
     });
 
     $("#addCourse").on("click", createCourse);
+
+    $("#cancel").on("click", function()
+    {
+        document.location.href = "courses.html";
+    });
 });
 
 function validateForm()
 {
-    let inputs = $("input[type='text']".val());
+    let errMsg = [];
+
+    //course id error
+    if ($("#courseid").val().trim() == "")
+    {
+        errMsg[errMsg.length] = "Course ID is required";
+    }
+
+    //title error
+    if ($("#title").val().trim() == "")
+    {
+        errMsg[errMsg.length] = "Title is required";
+    }
+
+    //category error
+    if ($("#category").val().trim() == "Choose one")
+    {
+        errMsg[errMsg.length] = "Category is required";
+    }
+
+    //location error
+    if ($("#location").val().trim() == "")
+    {
+        errMsg[errMsg.length] = "Location is required";
+    }
+
+    //start and end date variables
     let startDate = $("#startdate").val();
     let endDate = $("#enddate").val();
     let datePattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
-
-    if (!datePattern.test(startDate) || !datePattern.test(endDate))
+    //start and end date errors
+    if (startDate.trim() == "")
     {
-        $("#msgDiv").html("Please enter course inform");
+        errMsg[errMsg.length] = "Start Date is required";
+    }
+    if (datePattern.test(startDate.trim()) == false)
+    {
+        errMsg[errMsg.length] = "Start Date must be in a MM/DD/YY format";
+    }
+    if (endDate.trim() == "")
+    {
+        errMsg[errMsg.length] = "Start Date is required";
+    }
+    if (datePattern.test(endDate.trim()) == false)
+    {
+        errMsg[errMsg.length] = "End Date must be in a MM/DD/YY format";
     }
 
-    for (let i = 0; i < inputs.length; i++)
+    //meets error
+    if ($("#meets").val().trim() == "")
     {
-        if (inputs[i].trim() == "")
-        {
-            $("#msgDiv").html("Please enter course information.");
-        }
+        errMsg[errMsg.length] = "Meets On is required";
     }
+
+    //fee error
+    if ($("#fee").val().trim() == "")
+    {
+        errMsg[errMsg.length] = "Fee is required";
+    }
+
+    if (errMsg.length == 0)
+    {
+        return true;
+    }
+
+    $("#errorMessages").empty();
+    for(let i=0; i < errMsg.length; i++)
+    {
+        $("<li>" + errMsg[i] + "</li>").appendTo($("#errorMessages"));
+    }
+    return false;
 }
 
 function createCourse()
