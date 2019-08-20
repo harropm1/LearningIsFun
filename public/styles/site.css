@@ -5,10 +5,12 @@ h1, h2 {
     background-color: #056839 !important;
     color: white;
 }
+#msgDiv {
+    font-size: 1.5em;
+}
 .green {
     color: #056839;
 }
-
 .greenBackground {
     background-color: #056839 !important;
     color: white;

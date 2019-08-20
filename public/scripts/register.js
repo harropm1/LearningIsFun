@@ -35,10 +35,8 @@ function sendContact()
     $("#courseid").val(courseid);
     let studentNameInput = $("#studentname").val();
     let emailInput = $("#email").val();
-    let pattern = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/
-       
-    console.log(pattern.test(emailInput));
-    console.log(emailInput);
+    let pattern = /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/;
+
     if (studentNameInput.trim() == "" || !pattern.test(emailInput))
     {
         $("#msgDiv").html("Please valid enter student information.");

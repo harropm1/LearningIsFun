@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--My favicon and css-->
+    <link rel="icon" href="images/school-favicon.png">
+    <link rel="stylesheet" href="styles/site.css">
+
+    <title>Livingston Community Center</title>
+</head>
+
+<body>
+    <!--nav bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary navbar-custom">
+        <a class="navbar-brand" href="index.html">Main Office</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="courses.html">Look for Classes</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="display-1 text-center">Livingston Community Center</h1>
+    </header>
+    <!--table/buttons-->
+    <main>
+        <div class="container">
+            <form id="addCourseForm" name="addCourseForm" action="addcourse.html" method="POST">
+                <fieldset class="container border border-secondary p-3 rounded col-6">
+                    <legend class="font-weight-light bg-secondary text-center text-white w-50 rounded">Add a Course
+                    </legend>
+                    <div class="sortByCategory form-group">
+                        <div class="form-group">
+                            <label for="courseid">Course Id</label>
+                            <input type="text" class="form-control" id="courseid" name="courseid" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Course Title</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select class="form-control" id="category" name="category" required>
+                                <option value="Choose one">Choose a category</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" class="form-control" id="location" name="location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="startdate">Start Date</label>
+                            <input type="text" class="form-control" id="startdate" name="startdate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enddate">End Date</label>
+                            <input type="text" class="form-control" id="enddate" name="enddate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="meets">Meets</label>
+                            <input type="text" class="form-control" id="meets" name="meets" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fee">Fee</label>
+                            <input type="text" class="form-control" id="fee" name="fee" required>
+                        </div>
+                    </div>
+                    <div id="msgDiv"></div>
+                    <a role="button" class="btn btn-success greenBackground" id="addCourse" href="#">Add this
+                        Course</a>
+                    <a role="button" class="btn btn-danger" id="cancel" href="#">Cancel</a>
+                    <a role="button" class="btn btn-secondary" id="backToCourses" href="#">Return to Course Selector</a>
+                    
+                </fieldset>
+            </form>
+
+        </div>
+    </main>
+
+    <!--footer-->
+    <hr>
+    <footer class="text-right">
+        <p>All information provided by Dana. Michelle was not sick this week.</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!--My JavaScript-->
+    <script src="scripts/addcourse.js"></script>
+</body>
+
+</html>
