@@ -1,3 +1,6 @@
 #backToCourses {
     display: none;
 }
+#msgDiv {
+    color: red;
+}
