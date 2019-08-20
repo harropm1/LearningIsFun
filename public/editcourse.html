@@ -13,6 +13,7 @@
     <!--My favicon and css-->
     <link rel="icon" href="images/school-favicon.png">
     <link rel="stylesheet" href="styles/site.css">
+    <link rel="stylesheet" href="styles/editcourse.css">
 
     <title>Livingston Community Center</title>
 </head>
@@ -41,17 +42,74 @@
     <main>
         <div class="container">
             <h2 class="display-4 text-center">Course Details</h2>
-            <table id="courseTable" class="table">
-                <tbody id="coursetableBody">
-                </tbody>
-            </table>
+            <form id="editCourseForm">
+                <div class="form-group row">
+                    <label for="courseid" class="col-sm-2 col-form-label">Course Id</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="courseid" value="" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 col-form-label">Course Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="title" name="title" value="" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="category" class="col-sm-2 col-form-label">Category</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="category" name="category" value="" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="location" class="col-sm-2 col-form-label">Location</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="location" name="location" value="" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="startdate" class="col-sm-2 col-form-label">Start Date</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="startdate" name="startdate" value="" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="enddate" class="col-sm-2 col-form-label">End Date</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="enddate" name="enddate" value="" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="meets" class="col-sm-2 col-form-label">Meeting Times</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="meets" name="meets" value="" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="fee" class="col-sm-2 col-form-label">Fee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="fee" name="fee" value="" required>
+                    </div>
+                </div>
+
+                <a role="button" class="btn btn-success greenBackground" id="confirmEdit" href="#">Confirm Edit</a>
+                <a role="button" class="btn btn-secondary" id="cancelEdit" href="#">Cancel this Edit</a>
+            </form>
+            <div id="msgDiv">
+                <ul id="errorMessages">
+                </ul>
+            </div>
             <table id="studentTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Email</th>
+                        <th>Remove Student?</th>
+                    </tr>
+                </thead>
                 <tbody id="studentTableBody">
                 </tbody>
             </table>
-            <a role="button" class="btn btn-success greenBackground" id="confirmEdit" href="#">Confirm Edit</a>
-            <a role="button" class="btn btn-primary" id="cancelEdit" href="#">Cancel this Edit</a>
-            <a role="button" class="btn btn-secondary" id="backToDetails" href="#">Return to Course Selector</a>
         </div>
     </main>
 
@@ -73,6 +131,7 @@
         crossorigin="anonymous"></script>
 
     <!--My JavaScript-->
+    <script src="scripts/validate.js"></script>
     <script src="scripts/editcourse.js"></script>
 </body>
 

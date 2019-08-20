@@ -16,42 +16,56 @@ $(function ()
     {
         object = data;
 
-        insertTableData(object);
-        $("#register").prop("href", "register.html?courseId=" + object.CourseId);
+        insertData(object);
     });
 
-    $("#confirmEdit").on("click", function()
+    $("#confirmEdit").on("click", function ()
     {
-        //make this put change
+        let isok = validateForm();
+        if (isok == false)
+        {
+            return;
+        }
+        $.ajax(
+            {
+                url: '/api/courses/',
+                method: 'PUT',
+                data: $("#editCourseForm").serialize(),
+                done: function () 
+                {
+                    alert("Update Successful!");
+                },
+                fail: function ()
+                {
+                    alert("Something went wrong.");
+                }
+            });
+        //make this the put change
     });
 
-    $("#cancelEdit").on("click", function()
+    $("#cancelEdit").on("click", function ()
     {
-        //cancel the put change, then go back to details
         $("#cancelEdit").prop("href", "details.html?courseId=" + object.CourseId);
     });
 });
 
-/* This function dynamically creates a table that includes all of the data about a specific course.
+/* This function adds the original data from the details page into the input.
 *
-* @param - course = this is the data that is passed from the load function. It refers to each key value
+* @param - course = this is the data that is passed from the load function. It refers to each key value pair
 *
 */
-function insertTableData(course)
+function insertData(course)
 {
-    let tableData = '<tr><td>Course Id</td><td><input id="courseid" name="courseid" value="' + course.CourseId +
-        '" readonly></td></tr><tr><td>Course Title</td><td><input id="title" name="title" value="' + course.Title +
-        '"></td></tr><tr><td>Category</td><td><input id="category" name="category" value="' + course.Category +
-        '" readonly></td></tr><tr><td>Location</td><td><input id="location" name="location" value="' + course.Location +
-        '"></td></tr><tr><td>Start Date</td><td><input id="startDate" name="startDate" value="' + course.StartDate +
-        '"></td></tr><tr><td>End Date</td><td><input id="endDate" name="endDate" value="' + course.EndDate +
-        '"></td></tr><tr><td>Meeting Times</td><td><input id="meets" name="meets" value="' + course.Meets +
-        '"></td></tr><tr><td>Fee</td><td><input id="fee" name="fee" value="$' + course.Fee +
-        '"></td></tr><tr><td>Students Enrolled</td><td>&nbsp;</td></tr>';
+    $("#courseid").val(course.CourseId)
+    $("#title").val(course.Title)
+    $("#category").val(course.Category)
+    $("#location").val(course.Location)
+    $("#startdate").val(course.StartDate)
+    $("#enddate").val(course.EndDate)
+    $("#meets").val(course.Meets)
+    $("#fee").val(course.Fee)
 
-    $("#coursetableBody").append(tableData);
-
-    /* this part of the function loops through the registeredstudents to add them to the end of the table.
+    /* this part of the function loops through the registered students to add them to the end of the table.
     * if there is no one registered for the course, it also alerts that in the table as well.
     */
     if (course.Students.length == 0)
