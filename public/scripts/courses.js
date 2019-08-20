@@ -59,8 +59,13 @@ $(function ()
             allCourses = data;
             $("#tableBody").empty();
             createSearchByCategoryTable(allCourses);
-        })
-    })
+        });
+    });
+
+    $("#addClass").on("click", function()
+    {
+        $("#addClass").prop("href", "addcourse.html");
+    });
 });
 
 /* This function loops through the entire course list from server.js to know what to put into the table 

@@ -40,9 +40,9 @@ $(function ()
 function insertTableData(course)
 {
     let tableData = '<tr><td>Course Id</td><td><input id="courseid" name="courseid" value="' + course.CourseId +
-        '"></td></tr><tr><td>Course Title</td><td><input id="title" name="title" value="' + course.Title +
+        '" readonly></td></tr><tr><td>Course Title</td><td><input id="title" name="title" value="' + course.Title +
         '"></td></tr><tr><td>Category</td><td><input id="category" name="category" value="' + course.Category +
-        '"></td></tr><tr><td>Location</td><td><input id="location" name="location" value="' + course.Location +
+        '" readonly></td></tr><tr><td>Location</td><td><input id="location" name="location" value="' + course.Location +
         '"></td></tr><tr><td>Start Date</td><td><input id="startDate" name="startDate" value="' + course.StartDate +
         '"></td></tr><tr><td>End Date</td><td><input id="endDate" name="endDate" value="' + course.EndDate +
         '"></td></tr><tr><td>Meeting Times</td><td><input id="meets" name="meets" value="' + course.Meets +
