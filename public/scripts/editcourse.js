@@ -19,6 +19,10 @@ $(function ()
         insertData(object);
     });
 
+    /* this is what happens on the confirm edit button. 
+    * first it validates the information to make sure everything is filled out.
+    * if it is all correct, it does an ajax put request (which contains options for a success and an error)
+    */
     $("#confirmEdit").on("click", function ()
     {
         let isok = validateForm();
@@ -28,24 +32,35 @@ $(function ()
         }
         $.ajax(
             {
-                url: '/api/courses/',
+                url: '/api/courses',
                 method: 'PUT',
                 data: $("#editCourseForm").serialize(),
-                done: function () 
+                //this is "success" because for some reason, "done" does not work for me
+                success: function () 
                 {
-                    alert("Update Successful!");
+                    $("#successDiv").html("Update Successful!");
+                    $("#confirmEdit").hide();
+                    $("#cancelEdit").hide();
+                    $("#backToDetails").show();
                 },
-                fail: function ()
+                //this is "error" because for some reason, "fail" does not work for me
+                error: function ()
                 {
-                    alert("Something went wrong.");
+                    $("#successDiv").html("Something went wrong.");
                 }
             });
-        //make this the put change
     });
 
+    //this links the back to details page button and sends it back to the details page
+    $("#backToDetails").on("click", function ()
+    {
+        $("#backToDetails").prop("href", "details.html?courseId=" + courseId);
+    });
+
+    //this links the cancel button and sends it back to the details page
     $("#cancelEdit").on("click", function ()
     {
-        $("#cancelEdit").prop("href", "details.html?courseId=" + object.CourseId);
+        $("#cancelEdit").prop("href", "details.html?courseId=" + courseId);
     });
 });
 
@@ -56,6 +71,7 @@ $(function ()
 */
 function insertData(course)
 {
+    //this puts the course information into the fields.
     $("#courseid").val(course.CourseId)
     $("#title").val(course.Title)
     $("#category").val(course.Category)
@@ -80,7 +96,7 @@ function insertData(course)
         {
             let studentName = course.Students[i].StudentName;
             let email = course.Students[i].Email;
-            let studentsRow = "<tr><td>" + studentName + "</td><td>" + email + "</td><td><a role='button' class='btn btn-success greenBackground' id='removeStudent' href='#'>Remove Student</a></td></tr>";
+            let studentsRow = "<tr><td>" + studentName + "</td><td>" + email + "</td></tr>";
 
             $("#studentTableBody").append(studentsRow);
         }
