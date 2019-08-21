@@ -43,7 +43,7 @@ function validateForm()
     }
     if (endDate.trim() == "")
     {
-        errMsg[errMsg.length] = "Start Date is required";
+        errMsg[errMsg.length] = "End Date is required";
     }
     if (datePattern.test(endDate.trim()) == false)
     {

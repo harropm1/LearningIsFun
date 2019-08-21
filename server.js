@@ -84,7 +84,11 @@ app.get('/register.html', function (req, res)
 })
 app.get('/editcourse.html', function (req, res)
 {
-    res.sendFile(__dirname +"/public/" + "editcourse.html");
+    res.sendFile(__dirname + "/public/" + "editcourse.html");
+})
+app.get('/addcourse.html', function (req, res)
+{
+    res.sendFile(__dirname + "/public/" + "addcourse.html");
 })
 
 /* THIS CODE ALLOWS REQUESTS FOR THE API THROUGH */
