@@ -11,6 +11,7 @@ $(function ()
 
     /* when the user clicks the add me button, it calls the function sendContact */
     $("#addMe").on("click", sendContact);
+    
     /* when the user clicks the cancel button, it sends them back to the details page for that specific course */
     $("#cancel").on("click", function ()
     {
@@ -41,10 +42,12 @@ function sendContact()
     {
         $("#msgDiv").html("Please valid enter student information.");
     }
+
     else
     {
         $.post("/api/register", $("#registerForm").serialize(), function (data)
         {
+            console.log($("#registerForm").serialize());
             $("#msgDiv").html("See you soon!");
             $("#addMe").prop("disabled", true);
             $("#cancel").hide();

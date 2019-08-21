@@ -90,6 +90,10 @@ app.get('/addcourse.html', function (req, res)
 {
     res.sendFile(__dirname + "/public/" + "addcourse.html");
 })
+app.get('/unregisterstudent.html', function (req, res)
+{
+    res.sendFile(__dirname + "/public/" + "unregisterstudent.html");
+})
 
 /* THIS CODE ALLOWS REQUESTS FOR THE API THROUGH */
 // GET CATEGORIES
