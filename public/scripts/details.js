@@ -20,25 +20,27 @@ $(function ()
         $("#register").prop("href", "register.html?courseId=" + object.CourseId);
     });
 
-    $
-
+    //this links the back to details page button and sends it back to the details page for that course
     $("#backToDetails").on("click", function ()
     {
         $("#backToDetails").prop("href", "courses.html");
     });
+
+    //this links to the edit course page associated with the specific course
     $("#editClass").on("click", function ()
     {
         $("#editClass").prop("href", "editcourse.html?courseId=" + object.CourseId);
     });
 });
 
-/* This function dynamically creates a table that includes all of the data about a specific course.
+/* This function dynamically creates a table that includes all of the data about a specific course, including the students.
 *
 * @param - course = this is the data that is passed from the load function. It refers to each key value
 *
 */
 function insertTableData(course)
 {
+    //dynamically creating a table with the data about the course
     let tableData = '<tr><td>Course Id</td><td>' + course.CourseId +
         '</td></tr><tr><td>Course Title</td><td>' + course.Title +
         '</td></tr><tr><td>Category</td><td>' + course.Category +
@@ -51,15 +53,16 @@ function insertTableData(course)
 
     $("#tableBody").append(tableData);
 
-    /* this part of the function loops through the registered students to add them to a new table.
-    * if there is no one registered for the course, it also alerts that in the table as well.
-    */
+    //this notes that there are no students enrolled in the course
     if (course.Students.length == 0)
     {
         let noStudents = "<tr><td>No students enrolled</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
 
         $("#studentTableBody").append(noStudents);
     }
+
+    //if there are students enrolled, this will loop through the students and add their information into a new table.
+    //it also adds a remove button.
     else
     {
         for (let i = 0; i < course.Students.length; i++)
